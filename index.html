@@ -28,9 +28,10 @@ body{
   display: inline-block;
   width: 20.777%;
   height: 20.777%;
-  font-size: 77px
-
-
+  font-size: 77px;
+}
+.btn.disabled, .btn:disabled{
+ opacity: 1;
 }
 .input{
   font-size: 50px;
@@ -44,26 +45,51 @@ h2{
 <div class="container">
 <div id="buttons">
 <div class="row">
-<button id="1" class="btn btn-sq-lg btn-primary">X</button>
-<button id="2" class="btn btn-sq-lg btn-primary">O</button>
-<button id="3" class="btn btn-sq-lg btn-primary">X</button>
+<button id="1" class="btn btn-sq-lg btn-primary"></button>
+<button id="2" class="btn btn-sq-lg btn-primary"></button>
+<button id="3" class="btn btn-sq-lg btn-primary"></button>
 </div>
 <div class="row">
-<button id="4" class="btn btn-sq-lg btn-primary">X</button>
-<button id="5" class="btn btn-sq-lg btn-primary">X</button>
-<button id="6" class="btn btn-sq-lg btn-primary">X</button>
+<button id="4" class="btn btn-sq-lg btn-primary"></button>
+<button id="5" class="btn btn-sq-lg btn-primary"></button>
+<button id="6" class="btn btn-sq-lg btn-primary"></button>
 </div>
 <div class="row">
-<button id="7" class="btn btn-sq-lg btn-primary">X</button>
-<button id="8" class="btn btn-sq-lg btn-primary">X</button>
-<button id="9" class="btn btn-sq-lg btn-primary">X</button>
+<button id="7" class="btn btn-sq-lg btn-primary"></button>
+<button id="8" class="btn btn-sq-lg btn-primary"></button>
+<button id="9" class="btn btn-sq-lg btn-primary"></button>
 </div>
 </div>
 <div>
-<h2>Would you like to be <button class="btn btn-sq btn-primary"> X</button> or <button class="btn btn-sq btn-primary">O</button>?</h2>
+<h2 id="chooseText">Would you like to be <button id="choose_X" class="btn btn-sq btn-primary">X</button> or <button id="choose_O" class="btn btn-sq btn-primary">O</button>?</h2>
 </div>
 </div>
 <script>
+  var playerIsX = true;
+  var playersTurn = true;
+  $("#choose_X").on("click", function(){
+    playerIsX = false;
+    $("#chooseText").html("");
+  });
+  $("#choose_O").on("click", function(){
+    playerIsX = true;
+    $("#chooseText").html("");
+  });
+  $("button").on("click", function(){
+    if(playerIsX == true){
+      this.innerHTML = "X";
+      playerIsX = false;
+      this.disabled = true;
+    }else{
+      this.innerHTML = "O";
+      playerIsX = true;
+      this.disabled = true;
+    }
+  });
+
+  checkIfWin = function(){
+    
+  }
 </script>
 </body>    
 </html>
