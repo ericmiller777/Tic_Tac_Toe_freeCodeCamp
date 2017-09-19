@@ -45,19 +45,19 @@ h2{
 <div class="container">
 <div id="buttons">
 <div class="row">
-<button id="1" class="btn btn-sq-lg btn-primary"></button>
-<button id="2" class="btn btn-sq-lg btn-primary"></button>
-<button id="3" class="btn btn-sq-lg btn-primary"></button>
+<button id="A" class="btn btn-sq-lg btn-primary"></button>
+<button id="B" class="btn btn-sq-lg btn-primary"></button>
+<button id="C" class="btn btn-sq-lg btn-primary"></button>
 </div>
 <div class="row">
-<button id="4" class="btn btn-sq-lg btn-primary"></button>
-<button id="5" class="btn btn-sq-lg btn-primary"></button>
-<button id="6" class="btn btn-sq-lg btn-primary"></button>
+<button id="D" class="btn btn-sq-lg btn-primary"></button>
+<button id="E" class="btn btn-sq-lg btn-primary"></button>
+<button id="F" class="btn btn-sq-lg btn-primary"></button>
 </div>
 <div class="row">
-<button id="7" class="btn btn-sq-lg btn-primary"></button>
-<button id="8" class="btn btn-sq-lg btn-primary"></button>
-<button id="9" class="btn btn-sq-lg btn-primary"></button>
+<button id="G" class="btn btn-sq-lg btn-primary"></button>
+<button id="H" class="btn btn-sq-lg btn-primary"></button>
+<button id="I" class="btn btn-sq-lg btn-primary"></button>
 </div>
 </div>
 <div>
@@ -80,6 +80,7 @@ h2{
       this.innerHTML = "X";
       playerIsX = false;
       this.disabled = true;
+      checkIfWin();
     }else{
       this.innerHTML = "O";
       playerIsX = true;
@@ -87,8 +88,10 @@ h2{
     }
   });
 
-  checkIfWin = function(){
-    
+  function checkIfWin(){
+    if($("#A").innerHTML === "X"){
+      $("#chooseText").html("You Win!");
+    }
   }
 </script>
 </body>    
