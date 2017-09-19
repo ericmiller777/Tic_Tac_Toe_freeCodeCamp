@@ -169,7 +169,7 @@ h2{
     $("#chooseText").html("You Lose");
     $("button").prop("disabled", true);
     }
-    }else{
+    }else if(playerIsO == true){
     if($("#A").html() == "X" && $("#B").html() == "X" && $("#C").html() == "X"){
     $("#chooseText").html("You Lose");
     $("button").prop("disabled", true);
@@ -220,6 +220,16 @@ h2{
     $("button").prop("disabled", true);
     }
 
+    }else{
+    }
+    if($("#A").disabled){
+      $("#chooseText").html = "Tie";
+    }
+    if($("#chooseText").html() == "You Win!"||$("#chooseText").html() == "You Lose"){
+      console.log("You suck real bad");
+      setTimeout(function(){
+        location.reload();
+    },7777);
     }
   }
 </script>
