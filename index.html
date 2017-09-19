@@ -22,6 +22,11 @@ body{
   text-align: center;
   background-color: rgb(255, 177, 0);
 }
+h1{
+  text-align: center;
+  font-size: 77.77777;
+  color: rgb(51, 122, 183);
+}
 .btn-sq-lg{
   text-align: center;
   margin: 5px;
@@ -43,6 +48,7 @@ h2{
 <body>
 <!-- <h2> Hi Baby Love You!</h2> -->
 <div class="container">
+<h1>Tic-Tac-Toe</h1>
 <div id="buttons">
 <div class="row">
 <button id="A" class="btn btn-sq-lg btn-primary"></button>
@@ -222,10 +228,10 @@ h2{
 
     }else{
     }
-    if($("#A").disabled){
-      $("#chooseText").html = "Tie";
+    if(document.getElementById("A").disabled && document.getElementById("B").disabled && document.getElementById("C").disabled && document.getElementById("C").disabled && document.getElementById("D").disabled && document.getElementById("E").disabled && document.getElementById("F").disabled && document.getElementById("G").disabled && document.getElementById("H").disabled && document.getElementById("I").disabled && $("#chooseText").html() != "You Win!" && $("#chooseText").html() != "You Lose"){
+      $("#chooseText").html("Tie");
     }
-    if($("#chooseText").html() == "You Win!"||$("#chooseText").html() == "You Lose"){
+    if($("#chooseText").html() == "You Win!"||$("#chooseText").html() == "You Lose"||$("#chooseText").html() == "Tie"){
       console.log("You suck real bad");
       setTimeout(function(){
         location.reload();
