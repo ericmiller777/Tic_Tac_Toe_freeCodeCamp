@@ -65,32 +65,111 @@ h2{
 </div>
 </div>
 <script>
-  var playerIsX = true;
+  var playerIsX = false;
+  var playerIsO = false;
   var playersTurn = true;
+  var btnArray = [];
   $("#choose_X").on("click", function(){
-    playerIsX = false;
+    playerIsX = true;
+    console.log(playerIsX);
+    console.log(playersTurn)
     $("#chooseText").html("");
   });
   $("#choose_O").on("click", function(){
-    playerIsX = true;
+    playerIsO = true;
     $("#chooseText").html("");
   });
-  $("button").on("click", function(){
-    if(playerIsX == true){
+  $(".btn-sq-lg").on("click", function(){
+    if(playerIsX == true && playersTurn == true){
       this.innerHTML = "X";
-      playerIsX = false;
+      console.log("you suck");
       this.disabled = true;
+      //playersTurn = false;
       checkIfWin();
-    }else{
+    }else if(playerIsO == true && playersTurn == true){
       this.innerHTML = "O";
-      playerIsX = true;
       this.disabled = true;
+      //playersTurn = false;
+      checkIfWin();
+    }else if(playerTurn == false){
+      if(playerIsX == true){
+
+      }else if(playerIsO == true){
+
+      }
     }
   });
 
   function checkIfWin(){
-    if($("#A").innerHTML === "X"){
+    if(playerIsX == true){
+    if($("#A").html() == "X" && $("#B").html() == "X" && $("#C").html() == "X"){
       $("#chooseText").html("You Win!");
+    }else if($("#D").html() == "X" && $("#E").html() == "X" && $("#F").html() == "X"){
+      $("#chooseText").html("You Win!");
+    }else if($("#G").html() == "X" && $("#H").html() == "X" && $("#I").html() == "X"){
+      $("#chooseText").html("You Win!");
+    }else if($("#A").html() == "X" && $("#D").html() == "X" && $("#G").html() == "X"){
+      $("#chooseText").html("You Win!");
+    }else if($("#B").html() == "X" && $("#E").html() == "X" && $("#H").html() == "X"){
+      $("#chooseText").html("You Win!");
+    }else if($("#C").html() == "X" && $("#F").html() == "X" && $("#I").html() == "X"){
+      $("#chooseText").html("You Win!");
+    }else if($("#A").html() == "X" && $("#E").html() == "X" && $("#I").html() == "X"){
+      $("#chooseText").html("You Win!");
+    }else if($("#C").html() == "X" && $("#E").html() == "X" && $("#G").html() == "X"){
+      $("#chooseText").html("You Win!");
+    }else if($("#A").html() == "O" && $("#B").html() == "O" && $("#C").html() == "O"){
+      $("#chooseText").html("You Lose");
+    }else if($("#D").html() == "O" && $("#E").html() == "O" && $("#F").html() == "O"){
+      $("#chooseText").html("You Lose");
+    }else if($("#G").html() == "O" && $("#H").html() == "O" && $("#I").html() == "O"){
+      $("#chooseText").html("You Lose");
+    }else if($("#A").html() == "O" && $("#D").html() == "O" && $("#G").html() == "O"){
+      $("#chooseText").html("You Lose");
+    }else if($("#B").html() == "O" && $("#E").html() == "O" && $("#H").html() == "O"){
+      $("#chooseText").html("You Lose");
+    }else if($("#C").html() == "O" && $("#F").html() == "O" && $("#I").html() == "O"){
+      $("#chooseText").html("You Lose");
+    }else if($("#A").html() == "O" && $("#E").html() == "O" && $("#I").html() == "O"){
+      $("#chooseText").html("You Lose");
+    }else if($("#C").html() == "O" && $("#E").html() == "O" && $("#G").html() == "O"){
+      $("#chooseText").html("You Lose");
+    }
+    }else{
+      if($("#A").html() == "X" && $("#B").html() == "X" && $("#C").html() == "X"){
+      $("#chooseText").html("You Lose");
+    }else if($("#D").html() == "X" && $("#E").html() == "X" && $("#F").html() == "X"){
+      $("#chooseText").html("You Lose");
+    }else if($("#G").html() == "X" && $("#H").html() == "X" && $("#I").html() == "X"){
+      $("#chooseText").html("You Lose");
+    }else if($("#A").html() == "X" && $("#D").html() == "X" && $("#G").html() == "X"){
+      $("#chooseText").html("You Lose");
+    }else if($("#B").html() == "X" && $("#E").html() == "X" && $("#H").html() == "X"){
+      $("#chooseText").html("You Lose");
+    }else if($("#C").html() == "X" && $("#F").html() == "X" && $("#I").html() == "X"){
+      $("#chooseText").html("You Lose");
+    }else if($("#A").html() == "X" && $("#E").html() == "X" && $("#I").html() == "X"){
+      $("#chooseText").html("You Lose");
+    }else if($("#C").html() == "X" && $("#E").html() == "X" && $("#G").html() == "X"){
+      $("#chooseText").html("You Lose");
+    }else if($("#A").html() == "O" && $("#B").html() == "O" && $("#C").html() == "O"){
+      $("#chooseText").html("You Win!");
+    }else if($("#D").html() == "O" && $("#E").html() == "O" && $("#F").html() == "O"){
+      $("#chooseText").html("You Win!");
+    }else if($("#G").html() == "O" && $("#H").html() == "O" && $("#I").html() == "O"){
+      $("#chooseText").html("You Win!");
+    }else if($("#A").html() == "O" && $("#D").html() == "O" && $("#G").html() == "O"){
+      $("#chooseText").html("You Win!");
+    }else if($("#B").html() == "O" && $("#E").html() == "O" && $("#H").html() == "O"){
+      $("#chooseText").html("You Win!");
+    }else if($("#C").html() == "O" && $("#F").html() == "O" && $("#I").html() == "O"){
+      $("#chooseText").html("You Win!");
+    }else if($("#A").html() == "O" && $("#E").html() == "O" && $("#I").html() == "O"){
+      $("#chooseText").html("You Win!");
+    }else if($("#C").html() == "O" && $("#E").html() == "O" && $("#G").html() == "O"){
+      $("#chooseText").html("You Win!");
+    }
+
     }
   }
 </script>
