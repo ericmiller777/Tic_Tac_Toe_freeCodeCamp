@@ -1,243 +1,257 @@
-<html>    
+<html>
+
 <head>
   <!-- (0, 51, 102) -->
-    <!-- jQuery -->
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-      <!-- Latest compiled and minified CSS -->
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    
-      <!-- Latest compiled and minified JavaScript  -->
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" integrity="sha384-OHBBOqpYHNsIqQy8hL1U+8OXf9hH6QRxi0+EODezv82DfnZoV7qoHAZDwMwEJvSw"
-        crossorigin="anonymous">
-    
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
-    
-      <link href="https://fonts.googleapis.com/css?family=VT323" rel="stylesheet">
-    
-      <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- jQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+  <!-- Latest compiled and minified JavaScript  -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" integrity="sha384-OHBBOqpYHNsIqQy8hL1U+8OXf9hH6QRxi0+EODezv82DfnZoV7qoHAZDwMwEJvSw"
+    crossorigin="anonymous">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
+
+  <link href="https://fonts.googleapis.com/css?family=VT323" rel="stylesheet">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <style>
-body{
-  text-align: center;
-  background-color: rgb(255, 177, 0);
-}
-h1{
-  text-align: center;
-  font-size: 77.77777;
-  color: rgb(51, 122, 183);
-}
-.btn-sq-lg{
-  text-align: center;
-  margin: 5px;
-  display: inline-block;
-  width: 11.7777vw;
-  height: 11.7777vw;
-  font-size: 5vw;
-}
-.btn.disabled, .btn:disabled{
- opacity: 1;
-}
-.input{
-  font-size: 50px;
-}
-h2{
-  color: rgb(51, 122, 183);
-}
+  body {
+    text-align: center;
+    background-color: rgb(255, 177, 0);
+  }
+
+  h1 {
+    text-align: center;
+    font-size: 77.77777;
+    color: rgb(51, 122, 183);
+  }
+
+  .btn-sq-lg {
+    text-align: center;
+    margin: 5px;
+    display: inline-block;
+    width: 11.7777vw;
+    height: 11.7777vw;
+    font-size: 5vw;
+  }
+
+  .btn.disabled,
+  .btn:disabled {
+    opacity: 1;
+  }
+
+  .input {
+    font-size: 50px;
+  }
+
+  h2 {
+    color: rgb(51, 122, 183);
+  }
 </style>
+
 <body>
-<!-- <h2> Hi Baby Love You!</h2> -->
-<div class="container">
-<h1>Tic-Tac-Toe</h1>
-<div id="buttons">
-<div class="row">
-<button id="A" class="btn btn-sq-lg btn-primary"></button>
-<button id="B" class="btn btn-sq-lg btn-primary"></button>
-<button id="C" class="btn btn-sq-lg btn-primary"></button>
-</div>
-<div class="row">
-<button id="D" class="btn btn-sq-lg btn-primary"></button>
-<button id="E" class="btn btn-sq-lg btn-primary"></button>
-<button id="F" class="btn btn-sq-lg btn-primary"></button>
-</div>
-<div class="row">
-<button id="G" class="btn btn-sq-lg btn-primary"></button>
-<button id="H" class="btn btn-sq-lg btn-primary"></button>
-<button id="I" class="btn btn-sq-lg btn-primary"></button>
-</div>
-</div>
-<div>
-<h2 id="chooseText">Would you like to be <button id="choose_X" class="btn btn-sq btn-primary">X</button> or <button id="choose_O" class="btn btn-sq btn-primary">O</button>?</h2>
-</div>
-</div>
-<script>
-  var playerIsX = false;
-  var playerIsO = false;
-  var playersTurn = true;
-  var btnArray = [document.getElementById("A"), document.getElementById("B"), document.getElementById("C"), document.getElementById("D"), document.getElementById("E"), document.getElementById("F"), document.getElementById("G"), document.getElementById("H"), document.getElementById("I")];
-  $("#choose_X").on("click", function(){
-    playerIsX = true;
-    console.log(playerIsX);
-    console.log(playersTurn)
-    $("#chooseText").html("");
-  });
-  $("#choose_O").on("click", function(){
-    playerIsO = true;
-    $("#chooseText").html("");
-  });
-  $(".btn-sq-lg").on("click", function(){
-    if(playerIsX == true && playersTurn == true){
-      this.innerHTML = "X";
-      console.log("you suck");
-      this.disabled = true;
-      playersTurn = false;
-      checkIfWin();
-      if(playersTurn == false){
-      randomButton();
-  }
-    }else if(playerIsO == true && playersTurn == true){
-      this.innerHTML = "O";
-      this.disabled = true;
-      playersTurn = false;
-      checkIfWin();
-      if(playersTurn == false){
-      randomButton();
+  <!-- <h2> Hi Baby Love You!</h2> -->
+  <div class="container">
+    <h1>Tic-Tac-Toe</h1>
+    <div id="buttons">
+      <div class="row">
+        <button id="A" class="btn btn-sq-lg btn-primary"></button>
+        <button id="B" class="btn btn-sq-lg btn-primary"></button>
+        <button id="C" class="btn btn-sq-lg btn-primary"></button>
+      </div>
+      <div class="row">
+        <button id="D" class="btn btn-sq-lg btn-primary"></button>
+        <button id="E" class="btn btn-sq-lg btn-primary"></button>
+        <button id="F" class="btn btn-sq-lg btn-primary"></button>
+      </div>
+      <div class="row">
+        <button id="G" class="btn btn-sq-lg btn-primary"></button>
+        <button id="H" class="btn btn-sq-lg btn-primary"></button>
+        <button id="I" class="btn btn-sq-lg btn-primary"></button>
+      </div>
+    </div>
+    <div>
+      <h2 id="chooseText">Would you like to be <button id="choose_X" class="btn btn-sq btn-primary">X</button> or <button id="choose_O" class="btn btn-sq btn-primary">O</button>?</h2>
+    </div>
+  </div>
+  <script>
+    var playerIsX = false;
+    var playerIsO = false;
+    var playersTurn = true;
+    var btnArray = [document.getElementById("A"), document.getElementById("B"), document.getElementById("C"), document.getElementById("D"), document.getElementById("E"), document.getElementById("F"), document.getElementById("G"), document.getElementById("H"), document.getElementById("I")];
+    $("#choose_X").on("click", function () {
+      playerIsX = true;
+      console.log(playerIsX);
+      console.log(playersTurn)
+      $("#chooseText").html("");
+    });
+    $("#choose_O").on("click", function () {
+      playerIsO = true;
+      $("#chooseText").html("");
+    });
+    $(".btn-sq-lg").on("click", function () {
+      if (playerIsX == true && playersTurn == true) {
+        this.innerHTML = "X";
+        console.log("you suck");
+        this.disabled = true;
+        playersTurn = false;
+        checkIfWin();
+        if (playersTurn == false) {
+          randomButton();
+        }
+      } else if (playerIsO == true && playersTurn == true) {
+        this.innerHTML = "O";
+        this.disabled = true;
+        playersTurn = false;
+        checkIfWin();
+        if (playersTurn == false) {
+          randomButton();
+        }
+      }
+    });
+
+    function randomButton() {
+      var newRandom = btnArray[Math.floor(Math.random() * btnArray.length)];
+      if (newRandom.innerHTML == "") {
+        if (playerIsX == true) {
+          newRandom.innerHTML = "O";
+          checkIfWin();
+          playersTurn = true;
+        } else if (playerIsO == true) {
+          newRandom.innerHTML = "X";
+          checkIfWin();
+          playersTurn = true;
+        }
+        newRandom.disabled = true;
+      } else {
+        randomButton();
       }
     }
-  });
 
-  function randomButton(){
-    var newRandom = btnArray[Math.floor(Math.random() * btnArray.length)];
-    if (newRandom.innerHTML == ""){
-      if(playerIsX == true){
-      newRandom.innerHTML = "O";
-      checkIfWin();
-      playersTurn = true;
-      }else if(playerIsO == true){
-      newRandom.innerHTML = "X";
-      checkIfWin();
-      playersTurn = true;
+    function checkIfWin() {
+      if (playerIsX == true) {
+        if ($("#A").html() == "X" && $("#B").html() == "X" && $("#C").html() == "X") {
+          $("#chooseText").html("You Win!");
+          $("button").prop("disabled", true);
+        } else if ($("#D").html() == "X" && $("#E").html() == "X" && $("#F").html() == "X") {
+          $("#chooseText").html("You Win!");
+          $("button").prop("disabled", true);
+        } else if ($("#G").html() == "X" && $("#H").html() == "X" && $("#I").html() == "X") {
+          $("#chooseText").html("You Win!");
+          $("button").prop("disabled", true);
+        } else if ($("#A").html() == "X" && $("#D").html() == "X" && $("#G").html() == "X") {
+          $("#chooseText").html("You Win!");
+          $("button").prop("disabled", true);
+        } else if ($("#B").html() == "X" && $("#E").html() == "X" && $("#H").html() == "X") {
+          $("#chooseText").html("You Win!");
+          $("button").prop("disabled", true);
+        } else if ($("#C").html() == "X" && $("#F").html() == "X" && $("#I").html() == "X") {
+          $("#chooseText").html("You Win!");
+          $("button").prop("disabled", true);
+        } else if ($("#A").html() == "X" && $("#E").html() == "X" && $("#I").html() == "X") {
+          $("#chooseText").html("You Win!");
+          $("button").prop("disabled", true);
+        } else if ($("#C").html() == "X" && $("#E").html() == "X" && $("#G").html() == "X") {
+          $("#chooseText").html("You Win!");
+          $("button").prop("disabled", true);
+        } else if ($("#A").html() == "O" && $("#B").html() == "O" && $("#C").html() == "O") {
+          $("#chooseText").html("You Lose");
+          $("button").prop("disabled", true);
+        } else if ($("#D").html() == "O" && $("#E").html() == "O" && $("#F").html() == "O") {
+          $("#chooseText").html("You Lose");
+          $("button").prop("disabled", true);
+        } else if ($("#G").html() == "O" && $("#H").html() == "O" && $("#I").html() == "O") {
+          $("#chooseText").html("You Lose");
+          $("button").prop("disabled", true);
+        } else if ($("#A").html() == "O" && $("#D").html() == "O" && $("#G").html() == "O") {
+          $("#chooseText").html("You Lose");
+          $("button").prop("disabled", true);
+        } else if ($("#B").html() == "O" && $("#E").html() == "O" && $("#H").html() == "O") {
+          $("#chooseText").html("You Lose");
+          $("button").prop("disabled", true);
+        } else if ($("#C").html() == "O" && $("#F").html() == "O" && $("#I").html() == "O") {
+          $("#chooseText").html("You Lose");
+          $("button").prop("disabled", true);
+        } else if ($("#A").html() == "O" && $("#E").html() == "O" && $("#I").html() == "O") {
+          $("#chooseText").html("You Lose");
+          $("button").prop("disabled", true);
+        } else if ($("#C").html() == "O" && $("#E").html() == "O" && $("#G").html() == "O") {
+          $("#chooseText").html("You Lose");
+          $("button").prop("disabled", true);
+        }
+      } else if (playerIsO == true) {
+        if ($("#A").html() == "X" && $("#B").html() == "X" && $("#C").html() == "X") {
+          $("#chooseText").html("You Lose");
+          $("button").prop("disabled", true);
+        } else if ($("#D").html() == "X" && $("#E").html() == "X" && $("#F").html() == "X") {
+          $("#chooseText").html("You Lose");
+          $("button").prop("disabled", true);
+        } else if ($("#G").html() == "X" && $("#H").html() == "X" && $("#I").html() == "X") {
+          $("#chooseText").html("You Lose");
+          $("button").prop("disabled", true);
+        } else if ($("#A").html() == "X" && $("#D").html() == "X" && $("#G").html() == "X") {
+          $("#chooseText").html("You Lose");
+          $("button").prop("disabled", true);
+        } else if ($("#B").html() == "X" && $("#E").html() == "X" && $("#H").html() == "X") {
+          $("#chooseText").html("You Lose");
+          $("button").prop("disabled", true);
+        } else if ($("#C").html() == "X" && $("#F").html() == "X" && $("#I").html() == "X") {
+          $("#chooseText").html("You Lose");
+          $("button").prop("disabled", true);
+        } else if ($("#A").html() == "X" && $("#E").html() == "X" && $("#I").html() == "X") {
+          $("#chooseText").html("You Lose");
+          $("button").prop("disabled", true);
+        } else if ($("#C").html() == "X" && $("#E").html() == "X" && $("#G").html() == "X") {
+          $("#chooseText").html("You Lose");
+          $("button").prop("disabled", true);
+        } else if ($("#A").html() == "O" && $("#B").html() == "O" && $("#C").html() == "O") {
+          $("#chooseText").html("You Win!");
+          $("button").prop("disabled", true);
+        } else if ($("#D").html() == "O" && $("#E").html() == "O" && $("#F").html() == "O") {
+          $("#chooseText").html("You Win!");
+          $("button").prop("disabled", true);
+        } else if ($("#G").html() == "O" && $("#H").html() == "O" && $("#I").html() == "O") {
+          $("#chooseText").html("You Win!");
+          $("button").prop("disabled", true);
+        } else if ($("#A").html() == "O" && $("#D").html() == "O" && $("#G").html() == "O") {
+          $("#chooseText").html("You Win!");
+          $("button").prop("disabled", true);
+        } else if ($("#B").html() == "O" && $("#E").html() == "O" && $("#H").html() == "O") {
+          $("#chooseText").html("You Win!");
+          $("button").prop("disabled", true);
+        } else if ($("#C").html() == "O" && $("#F").html() == "O" && $("#I").html() == "O") {
+          $("#chooseText").html("You Win!");
+          $("button").prop("disabled", true);
+        } else if ($("#A").html() == "O" && $("#E").html() == "O" && $("#I").html() == "O") {
+          $("#chooseText").html("You Win!");
+          $("button").prop("disabled", true);
+        } else if ($("#C").html() == "O" && $("#E").html() == "O" && $("#G").html() == "O") {
+          $("#chooseText").html("You Win!");
+          $("button").prop("disabled", true);
+        }
+
+      } else {
       }
-      newRandom.disabled = true;
-    }else{
-      randomButton();
-    }
-  }
-
-  function checkIfWin(){
-    if(playerIsX == true){
-    if($("#A").html() == "X" && $("#B").html() == "X" && $("#C").html() == "X"){
-    $("#chooseText").html("You Win!");
-    $("button").prop("disabled", true);
-    }else if($("#D").html() == "X" && $("#E").html() == "X" && $("#F").html() == "X"){
-    $("#chooseText").html("You Win!");
-    $("button").prop("disabled", true);
-    }else if($("#G").html() == "X" && $("#H").html() == "X" && $("#I").html() == "X"){
-    $("#chooseText").html("You Win!");
-    $("button").prop("disabled", true);
-    }else if($("#A").html() == "X" && $("#D").html() == "X" && $("#G").html() == "X"){
-    $("#chooseText").html("You Win!");
-    $("button").prop("disabled", true);
-    }else if($("#B").html() == "X" && $("#E").html() == "X" && $("#H").html() == "X"){
-    $("#chooseText").html("You Win!");
-    $("button").prop("disabled", true);
-    }else if($("#C").html() == "X" && $("#F").html() == "X" && $("#I").html() == "X"){
-    $("#chooseText").html("You Win!");
-    $("button").prop("disabled", true);
-    }else if($("#A").html() == "X" && $("#E").html() == "X" && $("#I").html() == "X"){
-    $("#chooseText").html("You Win!");
-    $("button").prop("disabled", true);
-    }else if($("#C").html() == "X" && $("#E").html() == "X" && $("#G").html() == "X"){
-    $("#chooseText").html("You Win!");
-    $("button").prop("disabled", true);
-    }else if($("#A").html() == "O" && $("#B").html() == "O" && $("#C").html() == "O"){
-    $("#chooseText").html("You Lose");
-    $("button").prop("disabled", true);
-    }else if($("#D").html() == "O" && $("#E").html() == "O" && $("#F").html() == "O"){
-    $("#chooseText").html("You Lose");
-    $("button").prop("disabled", true);
-    }else if($("#G").html() == "O" && $("#H").html() == "O" && $("#I").html() == "O"){
-    $("#chooseText").html("You Lose");
-    $("button").prop("disabled", true);
-    }else if($("#A").html() == "O" && $("#D").html() == "O" && $("#G").html() == "O"){
-    $("#chooseText").html("You Lose");
-    $("button").prop("disabled", true);
-    }else if($("#B").html() == "O" && $("#E").html() == "O" && $("#H").html() == "O"){
-    $("#chooseText").html("You Lose");
-    $("button").prop("disabled", true);
-    }else if($("#C").html() == "O" && $("#F").html() == "O" && $("#I").html() == "O"){
-    $("#chooseText").html("You Lose");
-    $("button").prop("disabled", true);
-    }else if($("#A").html() == "O" && $("#E").html() == "O" && $("#I").html() == "O"){
-    $("#chooseText").html("You Lose");
-    $("button").prop("disabled", true);
-    }else if($("#C").html() == "O" && $("#E").html() == "O" && $("#G").html() == "O"){
-    $("#chooseText").html("You Lose");
-    $("button").prop("disabled", true);
-    }
-    }else if(playerIsO == true){
-    if($("#A").html() == "X" && $("#B").html() == "X" && $("#C").html() == "X"){
-    $("#chooseText").html("You Lose");
-    $("button").prop("disabled", true);
-    }else if($("#D").html() == "X" && $("#E").html() == "X" && $("#F").html() == "X"){
-    $("#chooseText").html("You Lose");
-    $("button").prop("disabled", true);
-    }else if($("#G").html() == "X" && $("#H").html() == "X" && $("#I").html() == "X"){
-    $("#chooseText").html("You Lose");
-    $("button").prop("disabled", true);
-    }else if($("#A").html() == "X" && $("#D").html() == "X" && $("#G").html() == "X"){
-    $("#chooseText").html("You Lose");
-    $("button").prop("disabled", true);
-    }else if($("#B").html() == "X" && $("#E").html() == "X" && $("#H").html() == "X"){
-    $("#chooseText").html("You Lose");
-    $("button").prop("disabled", true);
-    }else if($("#C").html() == "X" && $("#F").html() == "X" && $("#I").html() == "X"){
-    $("#chooseText").html("You Lose");
-    $("button").prop("disabled", true);
-    }else if($("#A").html() == "X" && $("#E").html() == "X" && $("#I").html() == "X"){
-    $("#chooseText").html("You Lose");
-    $("button").prop("disabled", true);
-    }else if($("#C").html() == "X" && $("#E").html() == "X" && $("#G").html() == "X"){
-    $("#chooseText").html("You Lose");
-    $("button").prop("disabled", true);
-    }else if($("#A").html() == "O" && $("#B").html() == "O" && $("#C").html() == "O"){
-    $("#chooseText").html("You Win!");
-    $("button").prop("disabled", true);
-    }else if($("#D").html() == "O" && $("#E").html() == "O" && $("#F").html() == "O"){
-    $("#chooseText").html("You Win!");
-    $("button").prop("disabled", true);
-    }else if($("#G").html() == "O" && $("#H").html() == "O" && $("#I").html() == "O"){
-    $("#chooseText").html("You Win!");
-    $("button").prop("disabled", true);
-    }else if($("#A").html() == "O" && $("#D").html() == "O" && $("#G").html() == "O"){
-    $("#chooseText").html("You Win!");
-    $("button").prop("disabled", true);
-    }else if($("#B").html() == "O" && $("#E").html() == "O" && $("#H").html() == "O"){
-    $("#chooseText").html("You Win!");
-    $("button").prop("disabled", true);
-    }else if($("#C").html() == "O" && $("#F").html() == "O" && $("#I").html() == "O"){
-    $("#chooseText").html("You Win!");
-    $("button").prop("disabled", true);
-    }else if($("#A").html() == "O" && $("#E").html() == "O" && $("#I").html() == "O"){
-    $("#chooseText").html("You Win!");
-    $("button").prop("disabled", true);
-    }else if($("#C").html() == "O" && $("#E").html() == "O" && $("#G").html() == "O"){
-    $("#chooseText").html("You Win!");
-    $("button").prop("disabled", true);
+      if (document.getElementById("A").disabled && document.getElementById("B").disabled && document.getElementById("C").disabled && document.getElementById("C").disabled && document.getElementById("D").disabled && document.getElementById("E").disabled && document.getElementById("F").disabled && document.getElementById("G").disabled && document.getElementById("H").disabled && document.getElementById("I").disabled && $("#chooseText").html() != "You Win!" && $("#chooseText").html() != "You Lose") {
+        $("#chooseText").html("Tie");
+      }
+      if ($("#chooseText").html() == "You Win!" || $("#chooseText").html() == "You Lose" || $("#chooseText").html() == "Tie") {
+        console.log("You suck real bad");
+        $("#chooseText").css("-webkit-animation:", "flash linear 1s infinite");
+        $("#chooseText").css("animation", "flash linear 1s infinite");
+        setTimeout(function () {
+          location.reload();
+        }, 7777);
+      }
     }
 
-    }else{
-    }
-    if(document.getElementById("A").disabled && document.getElementById("B").disabled && document.getElementById("C").disabled && document.getElementById("C").disabled && document.getElementById("D").disabled && document.getElementById("E").disabled && document.getElementById("F").disabled && document.getElementById("G").disabled && document.getElementById("H").disabled && document.getElementById("I").disabled && $("#chooseText").html() != "You Win!" && $("#chooseText").html() != "You Lose"){
-      $("#chooseText").html("Tie");
-    }
-    if($("#chooseText").html() == "You Win!"||$("#chooseText").html() == "You Lose"||$("#chooseText").html() == "Tie"){
-      console.log("You suck real bad");
-      setTimeout(function(){
-        location.reload();
-    },7777);
-    }
-  }
-</script>
-</body>    
+  </script>
+</body>
+
 </html>
